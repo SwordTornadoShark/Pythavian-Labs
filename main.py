@@ -63,3 +63,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+def review_missed(cards, results):
+    """
+    Given a list of cards and a parallel list of boolean results 
+    (True = correct, False = incorrect), returns a list of missed cards.
+    """
+    return [card for card, result in zip(cards, results) if not result]
+
+from features.core import review_missed
+def test_review_missed():
+    cards = ["Python", "JavaScript", "Rust"]
+    
+    # Mixed case: "JavaScript" was missed (False)
+    results_mixed = [True, False, True]
+    assert review_missed(cards, results_mixed) == ["JavaScript"]
+    
+    # Nothing missed case: all answers correct
+    results_none = [True, True, True]
+    assert review_missed(cards, results_none) == []
+
