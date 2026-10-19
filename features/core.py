@@ -34,6 +34,8 @@ def list_cards(cards, show=print):
 
 
 def cards_by_category(cards, category):
+    """Sort and organize a group of cards based off categories.
+    """
     return [c for c in cards if c["category"] == category]
 
 
