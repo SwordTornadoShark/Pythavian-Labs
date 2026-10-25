@@ -17,6 +17,11 @@ class TestCore(unittest.TestCase):
         self.assertEqual(card["id"], 2)
         self.assertEqual(len(data["cards"]), 2)
 
+    def test_top_card_returns_last_card_or_none(self):
+        cards = [{"question": "first"}, {"question": "last"}]
+        self.assertEqual(core.top_card(cards), cards[-1])
+        self.assertIsNone(core.top_card([]))
+
 
 if __name__ == "__main__":
     unittest.main()
