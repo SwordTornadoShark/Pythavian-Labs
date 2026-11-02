@@ -10,7 +10,21 @@ def deck_summary(data):
 
 
 def category_report(data):
-    # TODO(ticket): tally each card into a {category: count} dict and return it.
-    # For now this returns an empty report so the menu never crashes.
-    report = {}
-    return report
+    counts = {}
+    cards = data.get("cards", []) if isinstance(data, dict) else data
+    for card in cards:
+        category = card.get("category", "General")
+        counts[category] = counts.get(category, 0) + 1
+    return counts
+
+def best_streak(results):
+    best = 0
+    current = 0
+    for result in results:
+        if result:
+            current += 1
+            if current > best:
+                best = current
+        else:
+            current = 0
+        return best

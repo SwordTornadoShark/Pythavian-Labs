@@ -20,3 +20,26 @@ class TestCore(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+import unittest
+
+from features.core import best_streak
+
+class TestBestStreak(unittest.TestCase):
+    
+    def test_best_streak_empty(self):
+        self.assertEqual(best_streak([]), 0)
+
+    def test_best_streak_all_wrong(self):
+        self.assertEqual(best_streak([False, False, False]), 0)
+
+    def test_best_streak_all_correct(self):
+        self.assertEqual(best_streak([True, True, True]), 3)
+
+    def test_best_streak_mixed(self):
+        # Longest streak here is 3 ([True, True, True])
+        results = [True, True, False, True, True, True, False, True]
+        self.assertEqual(best_streak(results), 3)
+
+if __name__ == "__main__":
+    unittest.main()
