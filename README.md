@@ -1,8 +1,6 @@
 # StudySprint
 
-A small flashcard and quiz trainer you run in the terminal. Load a deck of
-cards from a JSON file, quiz yourself, and see your score at the end.
-
+Whenever you study, most of the features are hard to use or not free of use. This is where StudySprint comes in. StudySprint is a free app that allows users to create free flashcards to help review important terminology.
 This is your squad's starting product for **Elite 101**. It already runs. Your
 job over the term is to grow it one ticket at a time, the way a real software
 team does.
